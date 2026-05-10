@@ -1,26 +1,372 @@
-@import "tailwindcss";
+/**
+ * Global styles for the landing experience.
+ * Bootstrap handles most layout; this file adds brand tokens and light overrides.
+ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Align Bootstrap / reboot with Outfit (set on <html> via next/font) */
+  --bs-font-sans-serif: var(--font-outfit), ui-sans-serif, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --hero-bg: #f0fdf4;
+  --hero-showcase-panel: #ecfdf5;
+  --hero-text-muted: #9ca3af;
+  --hero-heading: #111827;
+  --nav-accent: #22c55e;
+  --nav-accent-hover: #16a34a;
+  --brand-primary: #28a745;
+  --brand-primary-dark: #218838;
+  --brand-bg-soft: #f4fbf6;
+  --brand-bg-mint: #e8f5ec;
+  --brand-cta-gradient-start: #e8f4fc;
+  --brand-cta-gradient-end: #f4fbf6;
+  --text-muted-custom: #5c636a;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #212529;
+  font-family: var(--bs-font-sans-serif);
+}
+
+.min-h-100 {
+  min-height: 100%;
+}
+
+.ls-wide {
+  letter-spacing: 0.08em;
+}
+
+.text-muted-custom {
+  color: var(--text-muted-custom);
+}
+
+.bg-brand-soft {
+  background-color: var(--brand-bg-soft) !important;
+}
+
+.bg-brand-mint {
+  background-color: var(--brand-bg-mint) !important;
+}
+
+.bg-cta-gradient {
+  background: linear-gradient(
+    180deg,
+    var(--brand-cta-gradient-start) 0%,
+    var(--brand-cta-gradient-end) 100%
+  );
+}
+
+.btn-brand {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--brand-primary);
+  --bs-btn-border-color: var(--brand-primary);
+  --bs-btn-hover-bg: var(--brand-primary-dark);
+  --bs-btn-hover-border-color: var(--brand-primary-dark);
+  --bs-btn-active-bg: var(--brand-primary-dark);
+  --bs-btn-active-border-color: var(--brand-primary-dark);
+}
+
+.shadow-soft {
+  box-shadow: 0 0.5rem 1.5rem rgba(40, 167, 69, 0.08);
+}
+
+/* Header uses same mint as hero so the top reads as one continuous light band */
+.site-header--hero {
+  background-color: var(--hero-bg) !important;
+  z-index: 1030;
+}
+
+.site-header--hero .navbar {
+  background-color: var(--hero-bg) !important;
+}
+
+/* Fluid navbar: no max-width — edge-to-edge content area like Bootstrap .container-fluid */
+.navbar-vidmology .navbar-fluid {
+  max-width: none;
+}
+
+/* Logo: full graphic visible; scales down in narrow columns (no clipping on the right) */
+.navbar-brand-logo-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 2.75rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-vidmology-collapse-mobile {
+    width: 100%;
+    background-color: #ecfdf5;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(34, 197, 94, 0.12);
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-vidmology .navbar-vidmology-collapse-mobile {
+    display: none !important;
+  }
+}
+
+.navbar-vidmology .nav-navbar-item.nav-link,
+.navbar-vidmology .nav-cluster .nav-link {
+  color: var(--hero-text-muted) !important;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.5rem 0.65rem !important;
+}
+
+.navbar-vidmology .nav-navbar-item.nav-link:hover,
+.navbar-vidmology .nav-navbar-item.nav-link:focus,
+.navbar-vidmology .nav-cluster .nav-link:hover {
+  color: var(--hero-heading) !important;
+}
+
+.nav-signin-link {
+  color: var(--hero-heading);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.35rem 0.25rem;
+}
+
+.nav-signin-link:hover {
+  color: var(--nav-accent-hover);
+}
+
+.btn-nav-cta {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--nav-accent);
+  --bs-btn-border-color: var(--nav-accent);
+  --bs-btn-hover-bg: var(--nav-accent-hover);
+  --bs-btn-hover-border-color: var(--nav-accent-hover);
+  --bs-btn-active-bg: var(--nav-accent-hover);
+  --bs-btn-active-border-color: var(--nav-accent-hover);
+  --bs-btn-focus-shadow-rgb: 34, 197, 94;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Learn dropdown — same tone as nav links */
+.navbar-vidmology .nav-learn-dropdown .dropdown-toggle {
+  color: var(--hero-text-muted) !important;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.5rem 0.65rem !important;
+}
+
+.navbar-vidmology .nav-learn-dropdown .dropdown-toggle:hover,
+.navbar-vidmology .nav-learn-dropdown .dropdown-toggle:focus,
+.navbar-vidmology .nav-learn-dropdown .dropdown-toggle.show {
+  color: var(--hero-heading) !important;
+}
+
+.navbar-vidmology .nav-learn-dropdown .dropdown-toggle::after {
+  margin-left: 0.35em;
+  vertical-align: 0.12em;
+  border-top-color: rgba(75, 85, 99, 0.75);
+  border-width: 0.28em;
+}
+
+/* Learn mega-menu: outer padding + white shell; cells white; mint only on hover */
+.navbar-vidmology .nav-learn-dropdown .dropdown-menu {
+  padding: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(26, 32, 44, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  min-width: min(760px, calc(100vw - 2rem));
+  margin-top: 0.75rem !important;
+}
+
+/*
+ * Center the mega-menu under the whole centered nav cluster (Learn + links), not
+ * only under the Learn toggle. Navbar dropdowns use data-bs-popper="static"; make
+ * the menu position against .nav-cluster by clearing .dropdown’s positioning context.
+ */
+@media (min-width: 992px) {
+  .navbar-vidmology
+    .navbar-expand-lg
+    .d-none.d-lg-flex
+    .nav-cluster {
+    position: relative;
+  }
+
+  .navbar-vidmology
+    .navbar-expand-lg
+    .d-none.d-lg-flex
+    .nav-cluster
+    .nav-learn-dropdown {
+    position: static !important;
+  }
+
+  .navbar-vidmology
+    .navbar-expand-lg
+    .d-none.d-lg-flex
+    .nav-cluster
+    .nav-learn-dropdown
+    .dropdown-menu[data-bs-popper] {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* Opacity-only pop so Popper’s horizontal centering transform is not overwritten */
+@keyframes learn-dropdown-pop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.learn-dropdown-animated .dropdown-menu.show {
+  animation: learn-dropdown-pop 0.22s ease forwards;
+}
+
+.learn-dropdown-menu-wrap {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.learn-dropdown-inner-row {
+  min-height: 100%;
+}
+
+/* Panel is the <Link>; default white, mint #ebf7f0 on hover */
+.learn-dropdown-panel.learn-dropdown-link {
+  padding: 1.5rem 1.25rem;
+  background-color: #ffffff;
+  transition: background-color 0.18s ease;
+  outline: none;
+}
+
+.learn-dropdown-panel.learn-dropdown-link:hover,
+.learn-dropdown-panel.learn-dropdown-link:focus-visible {
+  background-color: #ebf7f0;
+}
+
+@media (min-width: 768px) {
+  .learn-dropdown-inner-row .col + .col .learn-dropdown-panel {
+    border-left: 1px solid rgba(26, 32, 44, 0.08);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .learn-dropdown-inner-row .col + .col .learn-dropdown-panel {
+    border-top: 1px solid rgba(26, 32, 44, 0.08);
+    border-left: none;
+  }
+}
+
+.learn-dropdown-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a202c;
+  letter-spacing: -0.01em;
+}
+
+.learn-dropdown-desc {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #718096;
+  line-height: 1.45;
+}
+
+.learn-dropdown-link:hover .learn-dropdown-title,
+.learn-dropdown-link:focus-visible .learn-dropdown-title {
+  color: var(--nav-accent);
+}
+
+/* Hero (light mint section + showcase) */
+.hero-section {
+  background-color: var(--hero-bg);
+  padding-top: 5rem;
+  padding-bottom: 3.75rem;
+}
+
+@media (min-width: 992px) {
+  .hero-section {
+    padding-top: 6.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: hero-fade-up 0.6s ease forwards;
+}
+.hero-animate-1 { animation-delay: 0.05s; }
+.hero-animate-2 { animation-delay: 0.15s; }
+.hero-animate-3 { animation-delay: 0.25s; }
+.hero-animate-4 { animation-delay: 0.35s; }
+.hero-animate-5 {
+  animation: hero-fade-up 0.7s ease 0.45s forwards;
+  opacity: 0;
+}
+
+.hero-badge {
+  --bs-badge-color: #22c55e;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.08) !important;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  margin-top: 2rem;
+}
+
+.text-hero-accent {
+  color: var(--nav-accent);
+}
+
+.hero-subtext {
+  color: var(--hero-text-muted);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.hero-showcase-panel {
+  background: var(--hero-showcase-panel);
+  border: 1px solid rgba(34, 197, 94, 0.12);
+}
+
+.btn-hero-cta {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--nav-accent);
+  --bs-btn-border-color: var(--nav-accent);
+  --bs-btn-hover-bg: var(--nav-accent-hover);
+  --bs-btn-hover-border-color: var(--nav-accent-hover);
+  --bs-btn-active-bg: var(--nav-accent-hover);
+  --bs-btn-active-border-color: var(--nav-accent-hover);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35) !important;
+}
+
+.btn-hero-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2) !important;
 }
