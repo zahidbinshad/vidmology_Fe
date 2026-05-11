@@ -51,7 +51,7 @@ export function LandingNavbar() {
             <Col xs={6} md={6} lg={4} className="d-flex align-items-center">
               <Navbar.Brand
                 as={Link}
-                href="#home"
+                href="/"
                 className="d-flex align-items-center text-decoration-none py-1 me-0 min-w-0 max-w-100 overflow-visible"
                 onClick={close}
               >
@@ -146,7 +146,7 @@ export function LandingNavbar() {
             Learn
           </p>
           {learnDropdownPanels.map((panel) => (
-            <a
+            <Link
               key={panel.title}
               href={panel.href}
               onClick={close}
@@ -155,7 +155,7 @@ export function LandingNavbar() {
               onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
             >
               {panel.title}
-            </a>
+            </Link>
           ))}
 
           {/* Divider */}

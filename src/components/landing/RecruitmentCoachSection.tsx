@@ -5,64 +5,37 @@ import { recruitmentCoach } from "@/content/landingPage";
 
 export function RecruitmentCoachSection() {
   return (
-    <section
-      id="about"
-      style={{
-        background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(29,190,91,0.08) 0%, #fff 70%)",
-        paddingTop: "96px",
-        overflow: "hidden",
-      }}
-    >
+    <section id="about" className="coach-section">
       <Container>
         <div className="coach-layout">
 
-          {/* Left: text */}
           <div className="coach-text">
             <div>
-              <p className="section-heading" style={{ margin: 0, fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "1.2", color: "#101010" }}>
-                {recruitmentCoach.titleLine1}
-              </p>
-              <p className="section-heading" style={{ margin: 0, fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "1.2", color: "#1DBE5B" }}>
-                {recruitmentCoach.titleLine2}
-              </p>
+              <p className="section-heading section-title">{recruitmentCoach.titleLine1}</p>
+              <p className="section-heading section-title" style={{ color: "#1DBE5B" }}>{recruitmentCoach.titleLine2}</p>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               <p className="recruit-subtitle" style={{ margin: 0, fontSize: "32px", fontWeight: 500, lineHeight: "1.2", letterSpacing: "-1.6px", color: "#101010" }}>
                 {recruitmentCoach.subtitle}
               </p>
-              <p style={{ margin: 0, fontSize: "16px", fontWeight: 400, lineHeight: "1.4", color: "#878787" }}>
+              <p className="section-subtitle" style={{ fontSize: "16px", lineHeight: "1.4" }}>
                 {recruitmentCoach.body}
               </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+              <div className="coach-tags-row">
                 {recruitmentCoach.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{ background: "rgba(29,190,91,0.1)", color: "#1DBE5B", fontSize: "14px", fontWeight: 500, lineHeight: "1.5", padding: "4px 12px", borderRadius: "12px" }}
-                  >
-                    {tag}
-                  </span>
+                  <span key={tag} className="coach-tag">{tag}</span>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Right: stacked images */}
           <div className="coach-image-wrap">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={recruitmentCoach.image}
-              alt=""
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", borderRadius: "8px" }}
-            />
+            <img src={recruitmentCoach.image} alt="" className="coach-img" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={recruitmentCoach.imageOverlay}
-              alt="Your personal recruitment coach — Elden+ BOT"
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", borderRadius: "8px" }}
-            />
-            {/* Fade to background at bottom */}
-            <div style={{ position: "absolute", inset: 0, borderRadius: "8px", background: "linear-gradient(to bottom, transparent 70%, rgba(255,255,255,0.55) 88%, rgba(255,255,255,0.85) 100%)" }} />
+            <img src={recruitmentCoach.imageOverlay} alt="Your personal recruitment coach — Elden+ BOT" className="coach-img" />
+            <div className="coach-img-fade" />
           </div>
 
         </div>

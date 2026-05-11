@@ -7,7 +7,7 @@
 export const learnDropdownPanels = [
   {
     title: "Videos",
-    href: "#features",
+    href: "/videos",
     descriptionLines: [
       "Learn with 12 categories of bite videos and podcast",
     ] as const,
