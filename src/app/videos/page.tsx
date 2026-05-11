@@ -24,7 +24,7 @@ const sortOptions    = ["Default sorting", "Duration (short–long)", "Duration 
 
 function VideoCard({ video }: { video: Video }) {
   return (
-    <Link href={`/videos/${video.slug}`} className="media-card" style={{ textDecoration: "none" }}>
+    <Link href={`/videos/${video.slug}`} className="media-card">
       <div className="media-thumb course-card-thumb">
         <Image
           src={video.image}
@@ -36,8 +36,8 @@ function VideoCard({ video }: { video: Video }) {
         <div className="media-thumb-gradient" />
       </div>
 
-      <div className="video-card-content" style={{ padding: "16px 18px 18px", display: "flex", flexDirection: "column", gap: "8px", flex: 1 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" }}>
+      <div className="video-card-content">
+        <div className="video-card-meta-row">
           <span className={`badge-pill ${levelClass[video.level] ?? "badge-blue"}`}>
             {video.level}
           </span>

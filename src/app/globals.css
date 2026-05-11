@@ -634,9 +634,24 @@ body {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  text-decoration: none;
   box-shadow: 0 2px 14px rgba(0,0,0,0.06);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
+.video-card-content {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.video-card-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.vp-play-icon { margin-left: 2px; }
 .media-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 44px rgba(0,0,0,0.11);

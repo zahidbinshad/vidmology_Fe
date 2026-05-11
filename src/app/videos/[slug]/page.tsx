@@ -31,7 +31,7 @@ function EpisodeItem({ video, active }: { video: Video; active: boolean }) {
         <Image src={video.image} alt={video.title} fill className="object-fit-cover" sizes="76px" />
         <span className="vp-episode-num-badge">Ep {video.episode}</span>
         <div className="vp-episode-thumb-overlay">
-          <FaPlay size={12} color="#fff" style={{ marginLeft: 2 }} />
+          <FaPlay size={12} color="#fff" className="vp-play-icon" />
         </div>
       </div>
       <div className="vp-episode-info">
@@ -54,13 +54,13 @@ const levelClass: Record<string, string> = {
 
 function RelatedCard({ video }: { video: Video }) {
   return (
-    <Link href={`/videos/${video.slug}`} className="media-card" style={{ textDecoration: "none" }}>
+    <Link href={`/videos/${video.slug}`} className="media-card">
       <div className="media-thumb course-card-thumb">
         <Image src={video.image} alt={video.title} fill className="object-fit-cover" sizes="(max-width: 768px) 100vw, 400px" />
         <div className="media-thumb-gradient" />
       </div>
-      <div className="video-card-content" style={{ padding: "16px 18px 18px", display: "flex", flexDirection: "column", gap: "8px", flex: 1 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" }}>
+      <div className="video-card-content">
+        <div className="video-card-meta-row">
           <span className={`badge-pill ${levelClass[video.level] ?? "badge-blue"}`}>{video.level}</span>
           <span className="badge-pill badge-green">{video.tag}</span>
           <span className="video-card-meta">

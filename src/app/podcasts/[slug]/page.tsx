@@ -55,7 +55,7 @@ const levelClass: Record<string, string> = {
 
 function RelatedCard({ podcast }: { podcast: Podcast }) {
   return (
-    <Link href={`/podcasts/${podcast.slug}`} className="media-card" style={{ textDecoration: "none" }}>
+    <Link href={`/podcasts/${podcast.slug}`} className="media-card">
       <div className="media-thumb course-card-thumb">
         <Image src={podcast.image} alt={podcast.title} fill className="object-fit-cover" sizes="(max-width: 768px) 100vw, 400px" />
         <div className="media-thumb-gradient" />
@@ -63,8 +63,8 @@ function RelatedCard({ podcast }: { podcast: Podcast }) {
           <FaHeadphones size={16} color="#fff" aria-hidden />
         </div>
       </div>
-      <div className="video-card-content" style={{ padding: "16px 18px 18px", display: "flex", flexDirection: "column", gap: "8px", flex: 1 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" }}>
+      <div className="video-card-content">
+        <div className="video-card-meta-row">
           <span className={`badge-pill ${levelClass[podcast.level] ?? "badge-blue"}`}>{podcast.level}</span>
           <span className="badge-pill badge-green">{podcast.tag}</span>
           <span className="video-card-meta">
