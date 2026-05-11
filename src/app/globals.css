@@ -325,6 +325,14 @@ body {
   margin-top: 2rem;
 }
 
+@media (max-width: 767px) {
+  .hero-badge {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.85rem;
+    margin-top: 1rem;
+  }
+}
+
 .text-hero-accent {
   color: var(--nav-accent);
 }
@@ -455,12 +463,22 @@ body {
 
 /* ── Mobile (< 768px) ───────────────────────────────────── */
 @media (max-width: 767px) {
-  .hero-section h1             { font-size: 34px !important; letter-spacing: -0.025em !important; }
+  .hero-section h1 br          { display: none; }
+  .hero-section h1             { font-size: 34px !important; letter-spacing: -0.025em !important; margin-bottom: 8px !important; }
+  .hero-subtext p              { display: inline; }
+  .hero-subtext p + p::before  { content: " "; }
+  .hero-subtext                { font-size: 14px !important; line-height: 1.65 !important; margin-bottom: 24px !important; }
   section h2, .section-heading { font-size: 26px !important; }
   .recruit-subtitle            { font-size: 22px !important; }
-  .card-title-sm               { font-size: 17px !important; }
-  .hero-subtext                { font-size: 15px !important; line-height: 1.65 !important; }
+  .card-title-sm               { font-size: 17px !important; letter-spacing: -0.2px !important; }
+  .card-lift                   { padding: 16px !important; gap: 18px !important; }
+  .icon-badge                  { padding: 6px !important; border-radius: 16px !important; }
+  .icon-badge > div            { width: 36px !important; height: 36px !important; border-radius: 11px !important; }
+  .icon-badge svg              { width: 18px !important; height: 18px !important; }
   section { padding-top: 52px !important; padding-bottom: 52px !important; }
+  .ai-coach-header             { flex-direction: column !important; align-items: flex-start !important; margin-bottom: 32px !important; }
+  .btn-cta-green               { padding: 10px 14px !important; font-size: 14px !important; }
+  .btn-hero-cta                { font-size: 0.875rem !important; }
 }
 
 /* ── Small mobile (< 576px) ─────────────────────────────── */
@@ -470,7 +488,7 @@ body {
   .recruit-subtitle            { font-size: 19px !important; }
   .card-title-sm               { font-size: 16px !important; }
   section { padding-top: 44px !important; padding-bottom: 44px !important; }
-  .btn-hero-cta { display: block !important; width: 100% !important; text-align: center; }
+  .btn-hero-cta { display: block !important; width: 100% !important; text-align: center; padding: 10px 14px !important; font-size: 0.875rem !important; }
   .container, .container-fluid { padding-left: 16px !important; padding-right: 16px !important; }
 }
 
@@ -485,6 +503,16 @@ body {
 }
 @media (max-width: 575px) {
   .course-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .course-card-thumb   { height: 160px !important; }
+  .course-card-content { padding: 14px 16px 16px !important; gap: 8px !important; }
+  .levelup-subtitle    { white-space: normal !important; font-size: 14px !important; }
+  .goals-grid .pill-row { flex-direction: column !important; }
+  .goals-grid .pill-row > * { width: 100% !important; }
+  .final-cta-title     { font-size: 28px !important; white-space: normal !important; }
+  .final-cta-benefits  { gap: 10px 12px !important; justify-content: flex-start !important; }
+  .final-cta-benefits > * { flex: 1 1 46% !important; font-size: 13px !important; }
 }
 
 /* Testimonial card: responsive padding */

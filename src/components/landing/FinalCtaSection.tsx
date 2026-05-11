@@ -24,7 +24,7 @@ export function FinalCtaSection() {
           </span>
 
           {/* Title */}
-          <h2 style={{ fontSize: "48px", fontWeight: 600, lineHeight: "120%", color: "#101010", margin: 0, whiteSpace: "pre-line" }}>
+          <h2 className="final-cta-title" style={{ fontSize: "48px", fontWeight: 600, lineHeight: "120%", color: "#101010", margin: 0, whiteSpace: "pre-line" }}>
             {finalCta.title}
           </h2>
 
@@ -34,7 +34,7 @@ export function FinalCtaSection() {
           </p>
 
           {/* Benefits row */}
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "24px 40px" }}>
+          <div className="final-cta-benefits" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "24px 40px" }}>
             {finalCta.benefits.map((b) => (
               <div key={b} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "15px", fontWeight: 400, color: "#101010" }}>
                 <FaCheckCircle size={18} color="#1DBE5B" aria-hidden />

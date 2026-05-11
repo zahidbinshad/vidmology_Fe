@@ -26,7 +26,7 @@ export function LevelUpCareerCtaSection() {
           <h2 style={{ fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%", color: "#101010", marginBottom: "12px" }}>
             {levelUpCta.title}
           </h2>
-          <p style={{ fontSize: "16px", fontWeight: 400, lineHeight: "140%", color: "#878787", whiteSpace: "pre-line", margin: 0 }}>
+          <p className="levelup-subtitle" style={{ fontSize: "16px", fontWeight: 400, lineHeight: "140%", color: "#878787", whiteSpace: "pre-line", margin: 0 }}>
             {levelUpCta.subtitle}
           </p>
         </div>
@@ -55,7 +55,7 @@ export function LevelUpCareerCtaSection() {
         </div>
 
         {/* Goals grid */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "900px", margin: "0 auto" }}>
+        <div className="goals-grid" style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "900px", margin: "0 auto" }}>
           {/* Row 1: 3 items */}
           <div className="pill-row">
             {rows[0].map((goal) => (

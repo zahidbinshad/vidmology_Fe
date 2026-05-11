@@ -47,7 +47,7 @@ function CourseCard({ item, isPodcast }: { item: Item; isPodcast: boolean }) {
       }}
     >
       {/* Thumbnail */}
-      <div style={{ height: "196px", position: "relative", flexShrink: 0, background: isPodcast ? "#1a1a2e" : "#e5e7eb" }}>
+      <div className="course-card-thumb" style={{ height: "196px", position: "relative", flexShrink: 0, background: isPodcast ? "#1a1a2e" : "#e5e7eb" }}>
         <Image
           src={item.image}
           alt={item.title}
@@ -83,7 +83,7 @@ function CourseCard({ item, isPodcast }: { item: Item; isPodcast: boolean }) {
       </div>
 
       {/* Content */}
-      <div style={{ padding: "20px 22px 22px", display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
+      <div className="course-card-content" style={{ padding: "20px 22px 22px", display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
         {/* Badges */}
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ fontSize: 12, fontWeight: 600, padding: "4px 11px", borderRadius: "999px", ...(levelStyle[item.level] ?? levelStyle.Beginner) }}>

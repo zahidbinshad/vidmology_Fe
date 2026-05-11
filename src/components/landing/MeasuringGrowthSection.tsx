@@ -47,7 +47,7 @@ export function MeasuringGrowthSection() {
       <Container>
         {/* Header row */}
         <Reveal>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: "24px", marginBottom: "56px" }}>
+        <div className="ai-coach-header" style={{ display: "flex", alignItems: "flex-end", gap: "24px", marginBottom: "56px" }}>
           <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "12px" }}>
             <p className="section-heading" style={{ margin: 0, fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "1.2", color: "#101010" }}>
               {aiCoachSectionMeta.title}
