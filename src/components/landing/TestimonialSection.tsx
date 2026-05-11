@@ -29,7 +29,7 @@ export function TestimonialSection() {
           <h2 style={{ fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%", color: "#101010", marginBottom: "16px" }}>
             {builtToStayAhead.title}
           </h2>
-          <p style={{ fontSize: "16px", fontWeight: 400, lineHeight: "140%", color: "#878787", maxWidth: "680px", margin: "0 auto 32px" }}>
+          <p className="testimonial-subtitle" style={{ fontSize: "16px", fontWeight: 400, lineHeight: "140%", color: "#878787", maxWidth: "680px", margin: "0 auto 32px" }}>
             {builtToStayAhead.subtitle}
           </p>
           <p style={{ margin: "0", fontSize: "16px", fontWeight: 400, lineHeight: "160%", color: "#878787" }}>

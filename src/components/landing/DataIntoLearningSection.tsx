@@ -23,7 +23,7 @@ export function DataIntoLearningSection() {
     >
       <Container>
         <Reveal>
-        <div className="text-center col-lg-8 mx-auto" style={{ marginBottom: "56px" }}>
+        <div className="text-center col-lg-8 mx-auto section-header" style={{ marginBottom: "56px" }}>
           <h2 className="mb-3" style={{ color: "#101010", fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%" }}>
             {dataLearningSectionMeta.title}
           </h2>
@@ -68,7 +68,7 @@ export function DataIntoLearningSection() {
                   </div>
 
                   {/* Content */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+                  <div className="data-card-content" style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
                     <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                       <p className="card-title-sm" style={{ margin: 0, fontSize: "20px", fontWeight: 500, lineHeight: "1.2", letterSpacing: "-1.2px", color: "#101010" }}>
                         {card.title}

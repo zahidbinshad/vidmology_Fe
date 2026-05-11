@@ -20,7 +20,7 @@ export function BoostCareerSection() {
         </div>
 
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: "64px" }}>
+        <div className="text-center section-header" style={{ marginBottom: "64px" }}>
           <h2 style={{ fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%", color: "#101010", marginBottom: "16px" }}>
             {whiteLabelSection.title}
           </h2>
@@ -30,7 +30,7 @@ export function BoostCareerSection() {
         </div>
 
         {/* Feature grid: 2 rows x 3 */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "40px", marginBottom: "64px" }}>
+        <div className="boost-rows" style={{ display: "flex", flexDirection: "column", gap: "40px", marginBottom: "64px" }}>
           {rows.map((row, ri) => (
             <Row key={ri} className="g-4">
               {row.map((feat) => (

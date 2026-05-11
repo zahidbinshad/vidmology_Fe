@@ -18,7 +18,7 @@ export function PracticeScenariosSection() {
     <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
       <Container>
         <Reveal>
-        <div className="text-center" style={{ marginBottom: "56px" }}>
+        <div className="text-center section-header" style={{ marginBottom: "56px" }}>
           <h2 style={{ fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%", color: "#101010", marginBottom: "12px" }}>
             {practiceScenariosSectionMeta.title}
           </h2>

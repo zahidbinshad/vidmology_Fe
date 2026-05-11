@@ -22,7 +22,7 @@ export function LevelUpCareerCtaSection() {
     >
       <Container>
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: "32px" }}>
+        <div className="text-center section-header" style={{ marginBottom: "32px" }}>
           <h2 style={{ fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%", color: "#101010", marginBottom: "12px" }}>
             {levelUpCta.title}
           </h2>
@@ -32,7 +32,7 @@ export function LevelUpCareerCtaSection() {
         </div>
 
         {/* Filter pills */}
-        <div className="pill-row" style={{ marginBottom: "40px" }}>
+        <div className="pill-row filter-pill-row" style={{ marginBottom: "40px" }}>
           {levelUpCta.filters.map((f) => (
             <button
               key={f}

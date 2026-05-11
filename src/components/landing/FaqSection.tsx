@@ -25,6 +25,7 @@ export function FaqSection() {
               >
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
+                  className="faq-btn"
                   style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", padding: "24px 28px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
                 >
                   <span style={{ fontSize: "16px", fontWeight: 500, lineHeight: "1.4", color: isOpen ? "#1DBE5B" : "#101010" }}>
@@ -36,7 +37,7 @@ export function FaqSection() {
                   }
                 </button>
                 {isOpen && (
-                  <div style={{ padding: "0 28px 24px", fontSize: "16px", fontWeight: 400, lineHeight: "1.6", color: "#878787" }}>
+                  <div className="faq-answer" style={{ padding: "0 28px 24px", fontSize: "16px", fontWeight: 400, lineHeight: "1.6", color: "#878787" }}>
                     {item.answer}
                   </div>
                 )}
