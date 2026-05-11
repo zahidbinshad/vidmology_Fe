@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FaClock, FaSearch } from "react-icons/fa";
 import { LandingNavbar } from "@/components/landing/LandingNavbar";
 import { LandingFooter } from "@/components/landing/LandingFooter";
+import { CustomSelect } from "@/components/ui/CustomSelect";
 
 const levelClass: Record<string, string> = {
   Basic:        "badge-blue",
@@ -189,8 +190,7 @@ export default function VideosPage() {
             </div>
             <button
               onClick={() => {}}
-              className="btn-cta-green"
-              style={{ display: "flex", alignItems: "center", gap: "6px", border: "none", borderRadius: "8px", padding: "13px 22px", fontSize: "15px", fontWeight: 500, cursor: "pointer", whiteSpace: "nowrap" }}
+              className="btn-cta-green videos-search-btn"
             >
               <FaSearch size={14} aria-hidden /> Search
             </button>
@@ -201,22 +201,9 @@ export default function VideosPage() {
       <section className="bg-white videos-filters-section">
         <Container>
           <div className="videos-filter-row">
-            {[
-              { label: "Categories", value: category, options: categories, set: handleFilterChange(setCategory) },
-              { label: "Levels",     value: level,    options: levels,     set: handleFilterChange(setLevel)    },
-              { label: "Sort By",    value: sort,     options: sortOptions, set: handleFilterChange(setSort)    },
-            ].map(({ label, value, options, set }) => (
-              <div key={label} className="filter-group">
-                <label className="filter-label">{label}</label>
-                <select
-                  value={value}
-                  onChange={(e) => set(e.target.value)}
-                  className="filter-select"
-                >
-                  {options.map((o) => <option key={o} value={o}>{o}</option>)}
-                </select>
-              </div>
-            ))}
+            <CustomSelect label="Categories" value={category} options={categories} onChange={handleFilterChange(setCategory)} />
+            <CustomSelect label="Levels"     value={level}    options={levels}     onChange={handleFilterChange(setLevel)}    />
+            <CustomSelect label="Sort By"    value={sort}     options={sortOptions} onChange={handleFilterChange(setSort)}    />
           </div>
 
           {filtered.length > 0 && (
