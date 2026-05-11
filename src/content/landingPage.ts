@@ -14,7 +14,7 @@ export const learnDropdownPanels = [
   },
   {
     title: "Podcast",
-    href: "#features",
+    href: "/podcasts",
     /** Two display lines under the Podcast title */
     descriptionLines: [
       "Your 24/7 AI powered coach to help you with quiz,",
