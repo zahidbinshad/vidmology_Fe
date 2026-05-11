@@ -479,6 +479,8 @@ body {
   .ai-coach-header             { flex-direction: column !important; align-items: flex-start !important; margin-bottom: 32px !important; }
   .btn-cta-green               { padding: 10px 14px !important; font-size: 14px !important; }
   .btn-hero-cta                { font-size: 0.875rem !important; }
+  .footer-col-heading          { margin-bottom: 10px !important; }
+  .footer-col-list             { gap: 8px !important; }
 }
 
 /* ── Small mobile (< 576px) ─────────────────────────────── */
@@ -510,9 +512,10 @@ body {
   .levelup-subtitle    { white-space: normal !important; font-size: 14px !important; }
   .goals-grid .pill-row { flex-direction: column !important; }
   .goals-grid .pill-row > * { width: 100% !important; }
-  .final-cta-title     { font-size: 28px !important; white-space: normal !important; }
-  .final-cta-benefits  { gap: 10px 12px !important; justify-content: flex-start !important; }
-  .final-cta-benefits > * { flex: 1 1 46% !important; font-size: 13px !important; }
+  .final-cta-title     { font-size: 24px !important; white-space: normal !important; margin-bottom: -12px !important; }
+  .final-cta-benefits  { gap: 8px 20px !important; }
+  .final-cta-benefits > * { font-size: 14px !important; }
+  .final-cta-benefits > * svg { width: 14px !important; height: 14px !important; }
 }
 
 /* Testimonial card: responsive padding */

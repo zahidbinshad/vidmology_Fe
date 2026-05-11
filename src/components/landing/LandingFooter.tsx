@@ -33,7 +33,7 @@ export function LandingFooter() {
     <footer style={{ background: "#fff", borderTop: "1px solid #f0f0f0" }}>
       {/* Main row */}
       <Container style={{ paddingTop: "56px", paddingBottom: "48px" }}>
-        <Row className="g-4">
+        <Row className="g-lg-4 footer-main-row" style={{ rowGap: "32px" }}>
           {/* Brand column */}
           <Col lg={5} md={12}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -55,13 +55,13 @@ export function LandingFooter() {
 
           {/* Link columns pushed to right */}
           <Col lg={7} md={12}>
-            <Row className="g-4 justify-content-end">
+            <Row className="g-sm-4 justify-content-end footer-link-cols" style={{ rowGap: "32px" }}>
               {footerColumns.map((col) => (
-                <Col xs={6} sm={4} key={col.title}>
-                  <p style={{ margin: "0 0 20px", fontSize: "15px", fontWeight: 600, color: "#101010" }}>
+                <Col xs={12} sm={4} key={col.title}>
+                  <p className="footer-col-heading" style={{ margin: "0 0 20px", fontSize: "15px", fontWeight: 600, color: "#101010" }}>
                     {col.title}
                   </p>
-                  <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "14px" }}>
+                  <ul className="footer-col-list" style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "14px" }}>
                     {col.links.map((link) => (
                       <li key={link}>
                         <a href="#" style={{ fontSize: "14px", fontWeight: 400, color: "#878787", textDecoration: "none" }}>
