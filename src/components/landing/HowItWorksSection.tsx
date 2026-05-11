@@ -4,11 +4,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { FaUserAlt, FaPhone } from "react-icons/fa";
+import Image from "next/image";
 import { howItWorks, howItWorksSectionMeta } from "@/content/landingPage";
 import { Reveal } from "@/components/ui/Reveal";
 
 const iconMap: Record<string, React.ReactNode> = {
-  comment: <img src="/comment-02.svg" alt="" width={24} height={24} aria-hidden />,
+  comment: <Image src="/comment-02.svg" alt="" width={24} height={24} aria-hidden />,
   user: <FaUserAlt size={24} color="#141B34" aria-hidden />,
   phone: <FaPhone size={24} color="#141B34" aria-hidden />,
 };
