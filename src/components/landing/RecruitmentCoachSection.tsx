@@ -14,24 +14,24 @@ export function RecruitmentCoachSection() {
       }}
     >
       <Container>
-        <div style={{ display: "flex", alignItems: "center", gap: "48px" }}>
+        <div className="coach-layout">
 
           {/* Left: text */}
-          <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "28px", paddingBottom: "96px" }}>
+          <div className="coach-text">
             <div>
-              <p style={{ margin: 0, fontSize: "48px", fontWeight: 500, lineHeight: "1.2", color: "#101010" }}>
+              <p className="section-heading" style={{ margin: 0, fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "1.2", color: "#101010" }}>
                 {recruitmentCoach.titleLine1}
               </p>
-              <p style={{ margin: 0, fontSize: "48px", fontWeight: 500, lineHeight: "1.2", color: "#1DBE5B" }}>
+              <p className="section-heading" style={{ margin: 0, fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "1.2", color: "#1DBE5B" }}>
                 {recruitmentCoach.titleLine2}
               </p>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-              <p style={{ margin: 0, fontSize: "32px", fontWeight: 500, lineHeight: "1.2", letterSpacing: "-1.6px", color: "#101010" }}>
+              <p className="recruit-subtitle" style={{ margin: 0, fontSize: "32px", fontWeight: 500, lineHeight: "1.2", letterSpacing: "-1.6px", color: "#101010" }}>
                 {recruitmentCoach.subtitle}
               </p>
-              <p style={{ margin: 0, fontSize: "18px", fontWeight: 400, lineHeight: "1.4", color: "#878787" }}>
+              <p style={{ margin: 0, fontSize: "16px", fontWeight: 400, lineHeight: "1.4", color: "#878787" }}>
                 {recruitmentCoach.body}
               </p>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
@@ -48,7 +48,7 @@ export function RecruitmentCoachSection() {
           </div>
 
           {/* Right: stacked images */}
-          <div style={{ flexShrink: 0, position: "relative", width: "604px", height: "397px" }}>
+          <div className="coach-image-wrap">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={recruitmentCoach.image}

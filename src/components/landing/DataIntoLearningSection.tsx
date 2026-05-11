@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import { FaVideo, FaHeadphones, FaCheck } from "react-icons/fa";
 import { BsStars } from "react-icons/bs";
 import { dataLearningCards, dataLearningSectionMeta } from "@/content/landingPage";
+import { Reveal } from "@/components/ui/Reveal";
 
 const iconMap = {
   video: FaVideo,
@@ -21,34 +22,38 @@ export function DataIntoLearningSection() {
       style={{ paddingTop: "96px", paddingBottom: "96px" }}
     >
       <Container>
+        <Reveal>
         <div className="text-center col-lg-8 mx-auto" style={{ marginBottom: "56px" }}>
-          <h2 className="mb-3" style={{ color: "#101010", fontSize: "48px", fontWeight: 500, lineHeight: "120%" }}>
+          <h2 className="mb-3" style={{ color: "#101010", fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%" }}>
             {dataLearningSectionMeta.title}
           </h2>
-          <p className="mb-0" style={{ color: "#878787", fontSize: "18px", fontWeight: 400, lineHeight: "140%" }}>
+          <p className="mb-0" style={{ color: "#878787", fontSize: "16px", fontWeight: 400, lineHeight: "140%" }}>
             {dataLearningSectionMeta.subtitle}
           </p>
         </div>
+        </Reveal>
 
+        <Reveal delay={80}>
         <Row className="g-4">
           {dataLearningCards.map((card) => {
             const Icon = iconMap[card.icon as keyof typeof iconMap] ?? FaVideo;
             return (
               <Col md={4} key={card.title}>
                 <div
-                  className="h-100"
+                  className="card-lift h-100"
                   style={{
                     background: "#fff",
-                    border: "1px solid #d9f4cc",
-                    borderRadius: "12px",
+                    border: "1px solid #f0f0f0",
+                    borderRadius: "20px",
                     padding: "24px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "32px",
+                    boxShadow: "4px 4px 14px rgba(0,0,0,0.06)",
                   }}
                 >
                   {/* Badge */}
-                  <div style={{ display: "inline-flex", padding: "8px", background: "rgba(29,190,91,0.10)", borderRadius: "24px", alignSelf: "flex-start" }}>
+                  <div className="icon-badge" style={{ display: "inline-flex", padding: "8px", background: "rgba(29,190,91,0.10)", borderRadius: "24px", alignSelf: "flex-start" }}>
                     <div style={{
                       width: 48, height: 48,
                       background: "#fff",
@@ -65,10 +70,10 @@ export function DataIntoLearningSection() {
                   {/* Content */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
                     <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                      <p style={{ margin: 0, fontSize: "24px", fontWeight: 500, lineHeight: "1.2", letterSpacing: "-1.2px", color: "#101010" }}>
+                      <p className="card-title-sm" style={{ margin: 0, fontSize: "20px", fontWeight: 500, lineHeight: "1.2", letterSpacing: "-1.2px", color: "#101010" }}>
                         {card.title}
                       </p>
-                      <p style={{ margin: 0, fontSize: "18px", fontWeight: 400, lineHeight: "1.4", color: "#878787" }}>
+                      <p style={{ margin: 0, fontSize: "16px", fontWeight: 400, lineHeight: "1.4", color: "#878787" }}>
                         {card.description}
                       </p>
                     </div>
@@ -91,6 +96,7 @@ export function DataIntoLearningSection() {
             );
           })}
         </Row>
+        </Reveal>
       </Container>
     </section>
   );

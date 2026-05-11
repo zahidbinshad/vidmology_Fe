@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { FaRegClock } from "react-icons/fa";
 import { practiceScenarios, practiceScenariosSectionMeta } from "@/content/landingPage";
+import { Reveal } from "@/components/ui/Reveal";
 
 const difficultyStyle: Record<string, React.CSSProperties> = {
   Easy: { background: "rgba(29,190,91,0.12)", color: "#15803d" },
@@ -16,19 +17,22 @@ export function PracticeScenariosSection() {
   return (
     <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
       <Container>
+        <Reveal>
         <div className="text-center" style={{ marginBottom: "56px" }}>
-          <h2 style={{ fontSize: "48px", fontWeight: 500, lineHeight: "120%", color: "#101010", marginBottom: "12px" }}>
+          <h2 style={{ fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%", color: "#101010", marginBottom: "12px" }}>
             {practiceScenariosSectionMeta.title}
           </h2>
-          <p style={{ fontSize: "18px", fontWeight: 400, lineHeight: "140%", color: "#878787", margin: 0 }}>
+          <p style={{ fontSize: "16px", fontWeight: 400, lineHeight: "140%", color: "#878787", margin: 0 }}>
             {practiceScenariosSectionMeta.subtitle}
           </p>
         </div>
+        </Reveal>
 
+        <Reveal delay={80}>
         <Row className="g-4">
           {practiceScenarios.map((s) => (
             <Col md={4} key={s.title}>
-              <div style={{ background: "#fff", border: "1px solid #d9f4cc", borderRadius: "20px", padding: "24px", height: "100%", display: "flex", flexDirection: "column", gap: "16px", boxShadow: "4px 4px 14px rgba(0,0,0,0.06)" }}>
+              <div className="card-lift" style={{ background: "#fff", border: "1px solid #f0f0f0", borderRadius: "20px", padding: "24px", height: "100%", display: "flex", flexDirection: "column", gap: "16px", boxShadow: "4px 4px 14px rgba(0,0,0,0.06)" }}>
                 {/* Top row: category + difficulty */}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
                   <span style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.06em", color: "#1DBE5B", textTransform: "uppercase" }}>
@@ -41,7 +45,7 @@ export function PracticeScenariosSection() {
 
                 {/* Title + description */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", flex: 1 }}>
-                  <p style={{ margin: 0, fontSize: "24px", fontWeight: 500, lineHeight: "1.3", letterSpacing: "-1.2px", color: "#101010" }}>
+                  <p className="card-title-sm" style={{ margin: 0, fontSize: "20px", fontWeight: 500, lineHeight: "1.3", letterSpacing: "-1.2px", color: "#101010" }}>
                     {s.title}
                   </p>
                   <p style={{ margin: 0, fontSize: "15px", fontWeight: 400, lineHeight: "1.5", color: "#878787" }}>
@@ -58,6 +62,7 @@ export function PracticeScenariosSection() {
             </Col>
           ))}
         </Row>
+        </Reveal>
       </Container>
     </section>
   );

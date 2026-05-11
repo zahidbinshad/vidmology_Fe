@@ -69,14 +69,17 @@ body {
   box-shadow: 0 0.5rem 1.5rem rgba(40, 167, 69, 0.08);
 }
 
-/* Header uses same mint as hero so the top reads as one continuous light band */
+/* Frosted glass header — auto-tints to whatever section scrolls under it */
 .site-header--hero {
-  background-color: var(--hero-bg) !important;
+  background: transparent !important;
   z-index: 1030;
 }
 
 .site-header--hero .navbar {
-  background-color: var(--hero-bg) !important;
+  background: rgba(240, 253, 244, 0.82) !important;
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  border-bottom: 1px solid rgba(34, 197, 94, 0.08);
 }
 
 /* Fluid navbar: no max-width — edge-to-edge content area like Bootstrap .container-fluid */
@@ -94,35 +97,21 @@ body {
   object-position: left center;
 }
 
-@media (max-width: 991.98px) {
-  .navbar-vidmology-collapse-mobile {
-    width: 100%;
-    background-color: #ecfdf5;
-    margin-top: 0.5rem;
-    padding: 0.25rem 0.5rem 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(34, 197, 94, 0.12);
-  }
-}
-
-@media (min-width: 992px) {
-  .navbar-vidmology .navbar-vidmology-collapse-mobile {
-    display: none !important;
-  }
-}
 
 .navbar-vidmology .nav-navbar-item.nav-link,
 .navbar-vidmology .nav-cluster .nav-link {
-  color: var(--hero-text-muted) !important;
+  color: #374151 !important;
   font-weight: 500;
   font-size: 0.9375rem;
-  padding: 0.5rem 0.65rem !important;
+  padding: 0.45rem 0.75rem !important;
+  border-radius: 8px;
+  transition: color 0.18s ease, background 0.18s ease !important;
 }
 
 .navbar-vidmology .nav-navbar-item.nav-link:hover,
 .navbar-vidmology .nav-navbar-item.nav-link:focus,
 .navbar-vidmology .nav-cluster .nav-link:hover {
-  color: var(--hero-heading) !important;
+  color: #1DBE5B !important;
 }
 
 .nav-signin-link {
@@ -139,28 +128,32 @@ body {
 .btn-nav-cta {
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--nav-accent);
-  --bs-btn-border-color: var(--nav-accent);
+  --bs-btn-border-color: transparent;
   --bs-btn-hover-bg: var(--nav-accent-hover);
-  --bs-btn-hover-border-color: var(--nav-accent-hover);
+  --bs-btn-hover-border-color: transparent;
   --bs-btn-active-bg: var(--nav-accent-hover);
-  --bs-btn-active-border-color: var(--nav-accent-hover);
+  --bs-btn-active-border-color: transparent;
   --bs-btn-focus-shadow-rgb: 34, 197, 94;
+  background: linear-gradient(140deg, #20cc60 0%, #17a34a 100%) !important;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.28), inset 0 1px 0 rgba(255,255,255,0.12);
   font-weight: 500;
   font-size: 14px;
 }
 
 /* Learn dropdown — same tone as nav links */
 .navbar-vidmology .nav-learn-dropdown .dropdown-toggle {
-  color: var(--hero-text-muted) !important;
+  color: #374151 !important;
   font-weight: 500;
   font-size: 0.9375rem;
-  padding: 0.5rem 0.65rem !important;
+  padding: 0.45rem 0.75rem !important;
+  border-radius: 8px;
+  transition: color 0.18s ease, background 0.18s ease !important;
 }
 
 .navbar-vidmology .nav-learn-dropdown .dropdown-toggle:hover,
 .navbar-vidmology .nav-learn-dropdown .dropdown-toggle:focus,
 .navbar-vidmology .nav-learn-dropdown .dropdown-toggle.show {
-  color: var(--hero-heading) !important;
+  color: #1DBE5B !important;
 }
 
 .navbar-vidmology .nav-learn-dropdown .dropdown-toggle::after {
@@ -351,11 +344,13 @@ body {
 .btn-hero-cta {
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--nav-accent);
-  --bs-btn-border-color: var(--nav-accent);
+  --bs-btn-border-color: transparent;
   --bs-btn-hover-bg: var(--nav-accent-hover);
-  --bs-btn-hover-border-color: var(--nav-accent-hover);
+  --bs-btn-hover-border-color: transparent;
   --bs-btn-active-bg: var(--nav-accent-hover);
-  --bs-btn-active-border-color: var(--nav-accent-hover);
+  --bs-btn-active-border-color: transparent;
+  background: linear-gradient(140deg, #20cc60 0%, #17a34a 100%) !important;
+  box-shadow: 0 3px 12px rgba(34, 197, 94, 0.32), inset 0 1px 0 rgba(255,255,255,0.15);
   font-weight: 500;
   font-size: 0.9375rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -369,4 +364,176 @@ body {
 .btn-hero-cta:active {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2) !important;
+}
+
+/* ============================================================
+   Micro-interactions
+   ============================================================ */
+
+/* Scroll reveal — opacity 0 → 1 + slide up */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-7px) !important;
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.11) !important;
+}
+
+/* CTA button glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 4px 16px rgba(29, 190, 91, 0.28), 0 3px 10px rgba(29, 190, 91, 0.18); }
+  50%       { box-shadow: 0 4px 36px rgba(29, 190, 91, 0.55), 0 3px 10px rgba(29, 190, 91, 0.28); }
+}
+.btn-glow {
+  animation: glow-pulse 2.6s ease-in-out infinite;
+}
+
+/* Green CTA buttons — gradient + resting shadow */
+.btn-cta-green {
+  background: linear-gradient(140deg, #20cc60 0%, #17a34a 100%) !important;
+  box-shadow: 0 3px 12px rgba(29, 190, 91, 0.35), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+  border-color: transparent !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+}
+.btn-cta-green:hover {
+  box-shadow: 0 6px 22px rgba(29, 190, 91, 0.48), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Icon badge — spring-pop + lift + tilt on card hover */
+.icon-badge {
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center bottom;
+}
+.card-lift:hover .icon-badge {
+  transform: scale(1.14) translateY(-5px);
+}
+.icon-badge svg,
+.icon-badge > div svg {
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.card-lift:hover .icon-badge svg,
+.card-lift:hover .icon-badge > div svg {
+  transform: rotate(10deg);
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.in-view  { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .card-lift       { transition: none !important; }
+  .card-lift:hover { transform: none !important; }
+  .btn-glow        { animation: none !important; }
+}
+
+/* ============================================================
+   Mobile Responsiveness
+   ============================================================ */
+
+/* ── Tablet (768–991px) ─────────────────────────────────── */
+@media (max-width: 991px) {
+  .hero-section h1             { font-size: 42px !important; }
+  section h2, .section-heading { font-size: 32px !important; }
+  .recruit-subtitle            { font-size: 26px !important; }
+  .card-title-sm               { font-size: 18px !important; }
+  section { padding-top: 72px !important; padding-bottom: 72px !important; }
+}
+
+/* ── Mobile (< 768px) ───────────────────────────────────── */
+@media (max-width: 767px) {
+  .hero-section h1             { font-size: 34px !important; letter-spacing: -0.025em !important; }
+  section h2, .section-heading { font-size: 26px !important; }
+  .recruit-subtitle            { font-size: 22px !important; }
+  .card-title-sm               { font-size: 17px !important; }
+  .hero-subtext                { font-size: 15px !important; line-height: 1.65 !important; }
+  section { padding-top: 52px !important; padding-bottom: 52px !important; }
+}
+
+/* ── Small mobile (< 576px) ─────────────────────────────── */
+@media (max-width: 575px) {
+  .hero-section h1             { font-size: 28px !important; }
+  section h2, .section-heading { font-size: 22px !important; }
+  .recruit-subtitle            { font-size: 19px !important; }
+  .card-title-sm               { font-size: 16px !important; }
+  section { padding-top: 44px !important; padding-bottom: 44px !important; }
+  .btn-hero-cta { display: block !important; width: 100% !important; text-align: center; }
+  .container, .container-fluid { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+/* Course / podcast card grid: 3 → 2 → 1 col */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+@media (max-width: 991px) {
+  .course-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+@media (max-width: 575px) {
+  .course-grid { grid-template-columns: 1fr; }
+}
+
+/* Testimonial card: responsive padding */
+.testimonial-card { padding: 64px 80px; }
+@media (max-width: 767px) {
+  .testimonial-card { padding: 40px 28px !important; }
+}
+
+/* Recruitment coach: stack on tablet / mobile */
+.coach-layout {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.coach-text {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-bottom: 96px;
+}
+.coach-image-wrap {
+  flex-shrink: 0;
+  position: relative;
+  width: 604px;
+  height: 397px;
+}
+@media (max-width: 991px) {
+  .coach-layout  { flex-direction: column; gap: 40px; }
+  .coach-text    { flex: none; width: 100%; padding-bottom: 40px; }
+  .coach-image-wrap { width: 100%; height: 260px; }
+}
+
+/* Hamburger toggle: no border, no shadow, no default icon */
+.navbar-toggle-custom {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 4px 6px;
+  background: transparent !important;
+  line-height: 1;
+}
+.navbar-toggle-custom .navbar-toggler-icon { display: none; }
+.navbar-toggle-custom:focus { box-shadow: none !important; }
+
+/* Filter pill rows: wrap on mobile */
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }

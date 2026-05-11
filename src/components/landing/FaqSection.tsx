@@ -9,9 +9,9 @@ export function FaqSection() {
   const [open, setOpen] = useState<number>(0);
 
   return (
-    <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
+    <section className="bg-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
       <Container>
-        <h2 className="text-center" style={{ fontSize: "48px", fontWeight: 500, lineHeight: "120%", color: "#101010", marginBottom: "48px" }}>
+        <h2 className="text-center" style={{ fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%", color: "#101010", marginBottom: "48px" }}>
           Frequently Asked Questions
         </h2>
 
@@ -27,7 +27,7 @@ export function FaqSection() {
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", padding: "24px 28px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
                 >
-                  <span style={{ fontSize: "18px", fontWeight: 500, lineHeight: "1.4", color: isOpen ? "#1DBE5B" : "#101010" }}>
+                  <span style={{ fontSize: "16px", fontWeight: 500, lineHeight: "1.4", color: isOpen ? "#1DBE5B" : "#101010" }}>
                     {item.question}
                   </span>
                   {isOpen

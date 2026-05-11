@@ -21,10 +21,10 @@ export function BoostCareerSection() {
 
         {/* Header */}
         <div className="text-center" style={{ marginBottom: "64px" }}>
-          <h2 style={{ fontSize: "48px", fontWeight: 500, lineHeight: "120%", color: "#101010", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%", color: "#101010", marginBottom: "16px" }}>
             {whiteLabelSection.title}
           </h2>
-          <p style={{ fontSize: "18px", fontWeight: 400, lineHeight: "1.6", color: "#878787", margin: "0 auto", maxWidth: "640px" }}>
+          <p style={{ fontSize: "16px", fontWeight: 400, lineHeight: "1.6", color: "#878787", margin: "0 auto", maxWidth: "640px" }}>
             {whiteLabelSection.subtitle}
           </p>
         </div>
@@ -53,6 +53,7 @@ export function BoostCareerSection() {
         <div className="text-center">
           <a
             href="#pricing"
+            className="btn-cta-green"
             style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "#1DBE5B", color: "#fff", fontSize: "16px", fontWeight: 500, padding: "14px 28px", borderRadius: "8px", textDecoration: "none" }}
           >
             {whiteLabelSection.cta} →

@@ -123,7 +123,7 @@ export function LatestOfferingsSection() {
     <section className="bg-white" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
       <Container>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: "48px" }}>
-          <h2 style={{ color: "#101010", fontSize: "48px", fontWeight: 500, lineHeight: "120%", margin: 0, textAlign: "center" }}>
+          <h2 style={{ color: "#101010", fontSize: "40px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: "120%", margin: 0, textAlign: "center" }}>
             Our latest offerings
           </h2>
           <div style={{ display: "flex", gap: "4px", background: "#f5f5f5", padding: "4px", borderRadius: "999px" }}>
@@ -146,7 +146,7 @@ export function LatestOfferingsSection() {
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "28px" }}>
+        <div className="course-grid">
           {items.slice(0, 6).map((item) => (
             <CourseCard key={item.title} item={item} isPodcast={isPodcast} />
           ))}
