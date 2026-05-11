@@ -1429,13 +1429,31 @@ body {
 
 @media (max-width: 991px) {
   .vp-layout--with-sidebar { flex-direction: column; }
+  .vp-player-wrap { flex: none; width: 100%; }
   .vp-sidebar { width: 100%; }
   .vp-episode-list { max-height: 260px; }
   .vp-related-grid { grid-template-columns: repeat(2, 1fr); }
+  .vp-related { margin-top: 36px; }
+  .vp-related-heading { font-size: 18px; }
 }
+
+@media (max-width: 767px) {
+  .vp-page { padding-top: 20px; padding-bottom: 60px; }
+  .vp-breadcrumb { margin-bottom: 14px; }
+  .vp-meta { margin-top: 16px; gap: 8px; }
+  .vp-tabs { margin-top: 20px; gap: 2px; }
+  .vp-tab { padding: 7px 14px; font-size: 14px; }
+  .vp-description { padding: 16px 0; }
+  .vp-related { margin-top: 28px; }
+  .vp-related-heading { font-size: 17px; margin-bottom: 16px; }
+}
+
 @media (max-width: 575px) {
-  .vp-related-grid { grid-template-columns: 1fr; }
-  .vp-title { font-size: 20px; }
+  .vp-related-grid { grid-template-columns: 1fr; gap: 14px; }
+  .vp-title { font-size: 19px; }
+  .vp-tab { padding: 6px 12px; font-size: 13px; }
+  .vp-episode-list { max-height: 220px; }
+  .vp-episode-thumb { width: 64px; height: 42px; }
 }
 
 /* ============================================================
@@ -1628,6 +1646,26 @@ body {
   transition: opacity 0.15s ease;
 }
 .chat-widget-send:disabled { opacity: 0.4; cursor: not-allowed; }
+
+@media (max-width: 575px) {
+  .chat-widget-btn {
+    padding: 14px 8px;
+    gap: 6px;
+  }
+  .chat-widget-btn-text {
+    font-size: 11px;
+    display: none;
+  }
+  .chat-widget-panel {
+    width: 100vw;
+    bottom: 0;
+    border-radius: 14px 0 0 0;
+    max-height: 70dvh;
+  }
+  .chat-widget-panel--open {
+    transform: translateX(0) scale(1);
+  }
+}
 
 /* ============================================================
    CTA link helper

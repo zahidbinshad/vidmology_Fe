@@ -113,9 +113,7 @@ export default function VideoPlayerPage({ params }: { params: Promise<{ slug: st
                 poster={video.image}
                 className="vp-player"
                 preload="metadata"
-              >
-                <source src="" type="video/mp4" />
-              </video>
+              />
             </div>
 
             {/* Episode sidebar */}
